@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 基本类型（栈 stack）（长度大小固定）： undefined null number  string Boolean 可以按值访问，
+        // 因为可以操作保存在变量中的实际的值；
+
+        // 引用类型(堆 heap)（自由伸缩）: object function array...         引用类型的值是保存在内存中的对象，
+        // js不允许直接访问内存中的位置，也就是说不能直接操作对象的内存空间。操作对象时，
+        // 实际上是在操作对象的引用而不是实际的对象，因此引用类型的值是按引用访问的
+        
+        // 复制对象 基本类型会重新分配空间；引用类型实际上是创建了新的引用，值的副本其实是个指针
+        
+        // 传递参数 函数传参 
+        // （基本类型=> 基本类型 ) 传递的值会被复制给一个局部变量（arguments中的一个参数）
+        //  (引用类型=>引用类型)  内存的地址给一个局部变量，局部变量的变化会反应到函数的外部
+        // var count= 20
+        // function add(num){
+        //     num ++
+        // }
+        // add(count)
+        // console.log(count);
+
+
+        // 检测类型
+        // typeof 检测基本类型
+        // instanceof  对象的类型    alert(person instanceof Object)
+
+
+    </script>
+    
+</body>
+</html>

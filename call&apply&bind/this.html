@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="test">button</button>
+    <script>
+        // this指向window 
+// 如果不是一个对象的方法或属性 this指向window
+        // console.log(this) //window
+        // document.getElementById('test').onclick = function(){
+        //     console.log(this.id);
+        //     var callback = function(){
+        //         console.log(this);
+        //     }
+        //     callback()
+        // }
+
+
+// this 丢失
+        // var obj1 = {
+        //     name:'tset',
+        //     getName:function(){
+        //         return this.name
+        //     }
+        // }
+        // var getname2 = obj1.getName
+        // console.log(getname2());
+
+        // 只定义方法 没有把document指向引用过来
+        // var getid = document.getElementById
+        // console.log(getid('test')); //this.html:35 Uncaught TypeError: Illegal invocation
+
+        // var getid = document.getElementById
+        // console.log(getid.call(document,'test')); //button
+
+
+        
+    </script>
+</body>
+</html>

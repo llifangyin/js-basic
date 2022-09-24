@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>
+            项目1
+        </li>
+    </ul>
+    <button id="btn">buton</button>
+    <script>
+        var btn = document.getElementById('btn')
+        var list = document.getElementById('list')
+        btn.addEventListener('click',function(){
+            list.remove()
+        })
+        
+        // 分离的dom节点造成内存泄漏
+        // 浏览器调试
+        
+        // memory  => heap snapshot（堆快照） => filters(detached)过滤分离dom节点
+
+    </script>
+</body>
+</html>

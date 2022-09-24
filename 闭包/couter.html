@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包模拟私有方法
+        // 私有方法不仅仅有利于限制对代码的访问：
+        // 还提供管理全局命名空间的强大能力，
+        // 避免非核心的方法弄乱了代码的公共接口部分
+
+        // 模块模式 ：定义公公函数，可访问私有函数和变量
+
+    //  这个共享环境建立于一个立即执行的匿名函数体内
+    // 创建私有变量，私有方法
+    // 外部无法直接访问，必须通过匿名函数返回的三个公共函数访问
+
+    // 这三个公共函数共享同一个环境的闭包。
+
+        // var counter = (function(){
+        //     var privateCouter = 0
+        //     function changeBy(val){
+        //         privateCouter += val
+        //     }
+        //     return {
+        //         increment:function(){
+        //             changeBy(1)
+        //         },
+        //         decrement:function(){
+        //             changeBy(-1)
+        //         },
+        //         value:function(){
+        //             return privateCouter
+        //         }
+        //     }
+        // })()
+
+        // console.log(counter.value());
+        // counter.increment()
+        // counter.increment()
+
+        // console.log(counter.value());
+        // counter.decrement()
+        // console.log(counter.value());
+
+        // // console.log(privateCouter); //undefined
+
+
+
+    // couter1 couter2 各自私有变量独立性 数据隐藏和封装 
+        // var makeCouter = function(){
+        //     var privateCouter = 0
+        //     function changeBy(val){
+        //         privateCouter += val
+        //     }
+        //     return {
+        //         increment:function(){
+        //             changeBy(1)
+        //         },
+        //         decrement:function(){
+        //             changeBy(-1)
+        //         },
+        //         value:function(){
+        //             return privateCouter
+        //         }
+        //     }
+        // }
+        // var couter1 = makeCouter()
+        // var couter2 = makeCouter()
+        // // xxxx....
+
+
+
+
+    </script>
+</body>
+</html>

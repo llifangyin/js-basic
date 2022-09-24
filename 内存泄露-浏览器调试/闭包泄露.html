@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <button id="btn" onclick="closure()">buton</button>
+    <script>
+        // var func = []
+        // function outer(){
+        //     var sometext = new Array(1000_0000)
+        //     return function inner(){
+        //         return sometext
+        //     }
+        // }
+        // function closure(){
+        //     func.push(outer())
+        // }
+      //不合理的内存占用才是内存泄露
+        // 浏览器调试
+        // allocation instrumentation ontimeline
+        //  =>constructor里有sytem/context 表示有函数导致的闭包留存
+
+
+        // setInterval(() => {
+        //     return "21231"
+        // }, 2000);
+        
+        // console.log()  时刻保持被引用 
+    </script>
+</body>
+</html>

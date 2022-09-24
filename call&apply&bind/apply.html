@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">button</button>
+    <script>
+//    apply(thisobj,arguments)
+// 第一个参数 函数体内this对象的指向
+// 第二个参数 数组/类数组 apply把这个集合的元素作为参数传递给被调用的函数
+        // document.getElementById = (function(func){
+        //     return function(){ 
+        //         console.log(arguments);
+        //         return func.apply(document,arguments)
+        //     }
+        // })(document.getElementById)
+        // var getId = document.getElementById
+        // var btn = getId('btn1')
+        // console.log(btn);
+
+// arguments 参数类数组 默认是[pointevent,...参数]
+        // function testArg(test){
+        //     console.log(test);       
+        //     console.log(arguments)
+        //     console.log(111)
+        // }
+        // testArg(121) //Arguments [121, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        // document.getElementById('btn1').onclick= testArg //Arguments [PointerEvent, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+        var func = function(a,b,c){
+            console.log(this);
+            console.log([a,b,c]);
+        }
+        // // apply第一个参数是null this默认指向windwow
+        // func.apply(null,[1,2,3])//[1, 2, 3]
+        // func.apply(null,[1])// [1, undefined, undefined]
+        // func.apply(null,1,2,3)  //apply.html:39 Uncaught TypeError: CreateListFromArrayLike called on non-object
+
+// call是依次传进去
+        // func.call(null,1) //[1, undefined, undefined]
+        // func.call(null,1,2,3) //[1, 2, 3]
+
+// call是包装再apply上的一个语法糖  传递第一个参数为null,函数体的this默认指向window
+            
+            // var func = function(a,b,c){
+            //     "use strict" //严格模式下 this可以指向null 
+            //     console.log(this == null,this)
+            // }
+            // func(1,2,3)
+            // func.apply(null,[1,2,3])
+
+            
+// 用途 
+// 1、改变this指向
+    // document.getElementById('btn1').onclick = function(){
+    //     // console.log(this.id);
+    //     var func = function(){
+    //         console.log(this.id)
+    //     }
+    //     // func()
+    //     // func.call(this)//修正this指向当前对象
+    //     func.apply(this,arguments)
+    // }
+
+//  2、bind
+//     =>bind.html
+
+    // 3、借用其他对象的方法
+    
+        var fun1 = function(name){
+            this.name = name
+        }
+        var fun2 = function(){
+            //fun2的this也有了fun方法？？
+            fun1.apply(this,arguments)
+        }
+        fun2.prototype.getName = function(){
+            return this.name
+        }
+        
+        var b = new fun2('test')
+        console.log(b.getName());
+
+    </script>
+    
+</body>
+</html>

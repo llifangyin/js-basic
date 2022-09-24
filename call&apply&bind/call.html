@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//   call()
+
+        var obj1 = {
+            name:'test',
+            getName:function(){
+                return this.name
+            }
+        }
+        var obj2 = {
+            name:'uiod'
+        }
+        console.log(obj1.getName());
+        console.log(obj1.getName.call(obj2));
+        // 调用obj1.getName方法 将obj1的this指向obj2
+        // 换句话说，obj2调用了obj1的getName方法
+    </script>
+</body>
+</html>

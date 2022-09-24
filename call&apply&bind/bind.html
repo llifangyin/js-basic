@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">button</button>
+    <script>
+        Function.prototype.bind = function(context){
+            var self = this
+            // arguments是类数组不能用数组的方法 所以call一下 相当于arguments<array>.shift()
+            var context = [].shift.call(arguments) //shift会改变原数组 返回第一个值，并删掉第一个值
+            // contex =>obj1 arguments=> 生下的参数
+            var args = [].slice.call(arguments) //slice()不传值，默认返回原数组
+            return function(){
+                return self.apply(context,[].concat.call(args,[].slice.call(arguments)))
+            }
+        }
+        var obj1 = {name:1}
+        var func = function(a,b,c,d){ 
+            console.log(this.name);
+            console.log(a,b,c,d);
+        }.bind(obj1,1,2)
+        func(3,4)
+    </script>
+</body>
+</html>

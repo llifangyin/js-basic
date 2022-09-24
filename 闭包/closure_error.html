@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email"></p>
+    <p>Name: <input type="text" id="name" name="name"></p>
+    <p>Age: <input type="text" id="age" name="age"></p>
+
+    <script>
+        function showHelp(help) {
+            document.getElementById('help').innerHTML = help
+        }
+        function setupHelp(){
+            var helpText = [
+                {id:'email',help:'test111'},
+                {id:'name',help:'test2222'},
+                {id:'age',help:'test111'},
+            ]
+            for (var i = 0; i < helpText.length; i++) {
+                var item = helpText[i];
+                document.getElementById(item.id).onfocus = function () {
+                    showHelp(item.help)
+                }
+            }
+        }
+        // 发现无效  原因是onfocus是闭包。三个闭包在循环中创建，但他们共享了一个词法作用域
+        // 在作用域中存放了一个变量item。item使用var进行声明，
+        // 由于变量提升，所以具有函数作用域！！！
+        // 当onfocus的回调执行时，item.help的值被决定。由于循环在事件出发之前早已完成。
+        // 变量item已经指向了最后一项
+
+        // 解决这个问题的一种方案是使用更多的闭包，函数工厂
+        // =>closure_error_more..html
+        // 二：不想使用过多的闭包，使用es2015的let
+        // 三： forEach遍历
+
+        setupHelp()
+
+
+
+    </script>
+</body>
+
+</html>

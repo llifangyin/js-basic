@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="grow()">buton</button>
+    <script>
+        function largeObj(){
+            this.largeArr  = new Array(1000_000)
+        }
+        var x = []
+        function grow(){
+            var o = new largeObj()
+            x.push(o)
+        }
+
+        // 频繁垃圾回收的问题：js主线程会暂停的i也会导致卡顿
+
+        
+    </script>
+</body>
+</html>
